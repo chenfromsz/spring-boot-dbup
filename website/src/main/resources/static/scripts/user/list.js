@@ -12,17 +12,6 @@ $(function () {
         pg.trigger('setPage', [$(this).val()-1]);
     });
 
-    $("#shopId").bind("change",function(){
-        $("#storeId").siblings('input').val("请选择");
-        $("#storeId").html('<option value="">请选择</option>');
-        $.post("findStoreListByShopid",{shopId:$(this).val()},function(data){
-            var str = '<option value="">请选择</option>' ;
-            $.each(data, function (k, v) {
-                str += '<option value="'+ v.storeid +'">'+ v.storename+'</option>' ;
-            });
-            $("#storeId").html(str);
-        });
-    });
 });
 
 //分页的参数设置
