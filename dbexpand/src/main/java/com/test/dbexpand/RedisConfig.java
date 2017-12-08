@@ -62,6 +62,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     public CacheManager cacheManager(@SuppressWarnings("rawtypes") RedisTemplate redisTemplate) {
         RedisCacheManager manager = new RedisCacheManager(redisTemplate);
         manager.setDefaultExpiration(30);//30秒
+        manager.setUsePrefix(true);
         return manager;
     }
 
